@@ -4,7 +4,7 @@ A Flask-based web application for translating text and documents into multiple l
 
 ## Features
 - Translate text input or uploaded documents (PDF, TXT) into various languages.
-- Supports multiple Indian languages listed below.
+- Supports 22 Indian languages listed below.
   ```
     1. Hindi
     2. English
