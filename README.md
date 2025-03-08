@@ -80,7 +80,8 @@ genai.configure(api_key='your_api_key_here')
 Pull requests are welcome! Feel free to open an issue for suggestions or improvements.
 
 ## License
-This project is licensed under the MIT License.
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
 
 ---
 Made with ❤️ using Flask and Google AI.
