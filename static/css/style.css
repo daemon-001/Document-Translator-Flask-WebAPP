@@ -1,0 +1,641 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+
+
+
+
+
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+
+
+html, body {
+  height: 100%;
+  width: 100%;
+ 
+}
+
+
+
+#main {
+  position: relative;
+  overflow: hidden;
+}
+
+#page {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+}
+
+canvas {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  z-index: 9;
+}
+
+
+
+/* Navigation Bar Styles */
+#nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  z-index: 99;
+  top: 1%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 12px;
+  height: 50px; /* Adjusted height for the navbar */
+  width: 25%; /* Full width with some margin */
+  max-width: 1000px; /* Maximum width */
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 0 15px;
+}
+
+/* Logo Style */
+.nav-logo a {
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #000;
+}
+
+/* Center Navigation Links */
+.center-nav {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+/* Navigation Link Styles */
+.nav-link {
+  text-decoration: none;
+  color: #000;
+  font-size: 16px;
+  font-weight: 500;
+  position: relative;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-link:hover {
+  background-color: #ffcd6d;
+  color: #000;
+}
+
+.nav-link.active {
+  background-color: #ffcd6d;
+  color: #000;
+  font-weight: bold;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Right Side Actions (e.g. Login, Sign Up) */
+.nav-actions {
+  display: flex;
+  gap: 15px;
+}
+
+
+/* Dropdown Styles */
+.dropdown {
+  position: relative;
+}
+
+/* Initially, hide the dropdown menus */
+.dropdown-menu {
+  display: none; /* Hidden by default */
+  position: absolute;
+  top: 100%; /* Position it below the link */
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  min-width: 200px;
+  z-index: 1000;
+}
+
+
+
+.dropdown-column {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Dropdown link styles */
+.dropdown-column a {
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dropdown-column a:hover {
+  background-color: #007bff;
+  color: #fff;
+}
+
+/* Show dropdown menu only when hovering over the parent item */
+.dropdown:hover .dropdown-menu {
+  display: block; /* Show the dropdown when hovered */
+}
+/* Button Styles */
+#translateButton {
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  background-color: #ede2cf;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+#translateButton:hover {
+  background-color: #f1b743;
+  transform: scale(1.05);
+}
+
+
+
+#page > h1 {
+  font-size: 5vw;
+  position: absolute;
+  z-index: 99;
+  text-align: center;
+  top: 50vh;
+  font-weight: 500;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#page > h6 {
+  font-size: 2.5vw;
+  position: absolute;
+  text-align: center;
+  top: 110vh;
+  font-weight: 400;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 99;
+  color: #565656;
+}
+
+#page1 {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  background-color: #E5E1DC;
+}
+
+#page1 > h1 {
+  z-index: 99;
+  position: absolute;
+  left: 50%;
+  top: 90vh;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-size: 5vw;
+  font-weight: 500;
+}
+
+#page1 > h4 {
+  position: absolute;
+  left: 50%;
+  top: 135vh;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-size: 2.5vw;
+  font-weight: 400;
+  white-space: nowrap;
+  color: #565656;
+  z-index: 99;
+}
+
+
+
+#page2 {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  background-color: transparent;
+}
+
+#page3 {
+  position: relative;
+  z-index: 99;
+  height: 100vh;
+  width: 100vw;
+  background-color: transparent;
+}
+
+#page4 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  z-index: 99;
+  height: 100vh;
+  width: 100vw;
+  background-color: transparent;
+  text-align: center;
+  background-color: #E4E0DD;
+}
+
+#page4 > h1 {
+  font-weight: 600;
+  font-size: 3vw;
+}
+
+#page4 > h4 {
+  margin-top: 2.5vh;
+  font-weight: 500;
+  color: #646464;
+  font-size: 1.5vw;
+}
+
+#page5 {
+  width: 90%; /* Keeps the page within a reasonable width */
+  max-width: 1200px; /* Maximum width for larger screens */
+  margin: 50px auto; /* Centers the container horizontally */
+  padding: 20px;
+  background: white; /* Background color for the page */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+}
+
+#center-page5 {
+  display: flex; /* Aligns the left and right sections side by side */
+  justify-content: space-between; /* Places content on the left and right sides */
+  align-items: center; /* Vertically centers the content */
+}
+
+#left-page5 {
+  width: 45%; /* Makes the left section take up 45% of the container width */
+  padding: 10px;
+}
+
+#left-page5 img {
+  width: 100%; /* Makes the image responsive and fill the available width */
+  border-radius: 10px; /* Rounded corners on the image */
+}
+
+#right-page5 {
+  width: 50%; /* Takes up the remaining width for text content */
+  padding: 10px;
+}
+
+#right-page5 h1 {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 15px; /* Adds space below the heading */
+}
+
+#right-page5 h4 {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6; /* Increases line height for better readability */
+  color: #555; /* Adds a softer color to the text */
+}
+
+button {
+  background-color: #007bff; /* Blue background for the button */
+  color: white; /* White text color */
+  border: none; /* Removes border */
+  padding: 10px 20px; /* Adds padding inside the button */
+  font-size: 16px;
+  border-radius: 5px; /* Rounded corners for the button */
+  cursor: pointer; /* Changes cursor to pointer when hovered */
+  transition: background-color 0.3s ease; /* Smooth background color transition */
+}
+
+button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+
+#page6 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%; /* Keeps it within a reasonable width */
+  max-width: 1200px;
+  margin: 50px auto; /* Centers the container */
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow effect */
+  overflow: hidden;
+}
+
+.left-page6 {
+  width: 50%;
+  padding: 20px;
+  text-align: left;
+}
+
+.left-page6 h1 {
+  font-size: 24px;
+  font-weight: bold;/* Adds space below the heading */
+}
+
+.left-page6 h4 {
+font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.right-page6 {
+  width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.right-page6 video {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 10px; /* Rounded corners on the video */
+}
+
+#page7 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%; /* Keeps it within a reasonable width */
+  max-width: 1200px;
+  margin: 50px auto; /* Centers the container */
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow effect */
+  overflow: hidden;
+}
+
+.left-page7 {
+  width: 50%;
+  padding: 20px;
+  text-align: left;
+}
+
+.left-page7 h1 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.left-page7 h4 {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.right-page7 {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.right-page7 video {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 10px;
+}
+
+
+#page8 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%; /* Adjust width to prevent overflow */
+  max-width: 1200px; /* Ensures content is centered within a limit */
+  margin: 50px auto; /* Centering and spacing */
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow effect */
+  overflow: hidden; /* Prevents content from overflowing */
+}
+
+.left-page8 {
+  width: 50%;
+  padding: 20px;
+  text-align: left;
+}
+
+.left-page8 h1 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.left-page8 h4 {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.right-page8 {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.right-page8 video {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 10px;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  #nav {
+    width: 90vw;
+    height: 10vh;
+    padding: 0 2vw;
+  }
+
+  .nav-link {
+    font-size: 3vw;
+    padding: 1vw 2vw;
+  }
+
+  #page > h1 {
+    font-size: 12vw;
+    top: 30vh;
+  }
+
+  #page > h6 {
+    font-size: 4vw;
+    top: 70vh;
+  }
+
+  #page1 > h1 {
+    font-size: 12vw;
+    top: 60vh;
+  }
+
+  #page1 > h4 {
+    font-size: 5vw;
+    top: 90vh;
+  }
+
+  #page1 > #btn1,
+  #page1 > #btn2 {
+    font-size: 3vw;
+    padding: 2vw 3vw;
+    top: 15vh;
+  }
+
+  .left-page6 > h1,
+  .left-page7 > h1,
+  .left-page8 > h1 {
+    font-size: 4vw;
+  }
+
+  .left-page6 > h4,
+  .left-page7 > h4,
+  .left-page8 > h4 {
+    font-size: 3vw;
+  }
+
+  .right-page6 > video,
+  .right-page7 > video,
+  .right-page8 > video {
+    height: 50%;
+    width: 50%;
+  }
+}
+@media (max-width: 1024px) {
+  #nav {
+    width: 80vw;
+    height: 9vh;
+    padding: 0 1.5vw;
+  }
+
+  .nav-link {
+    font-size: 2.5vw;
+    padding: 0.8vw 1.5vw;
+  }
+
+  #page > h1 {
+    font-size: 10vw;
+    top: 40vh;
+  }
+
+  #page > h6 {
+    font-size: 3.5vw;
+    top: 90vh;
+  }
+
+  #page1 > h1 {
+    font-size: 10vw;
+    top: 70vh;
+  }
+
+  #page1 > h4 {
+    font-size: 4vw;
+    top: 110vh;
+  }
+
+  #page1 > #btn1,
+  #page1 > #btn2 {
+    font-size: 2.5vw;
+    padding: 1.5vw 2.5vw;
+    top: 140vh;
+  }
+
+  .left-page6 > h1,
+  .left-page7 > h1,
+  .left-page8 > h1 {
+    font-size: 3.5vw;
+  }
+
+  .left-page6 > h4,
+  .left-page7 > h4,
+  .left-page8 > h4 {
+    font-size: 2.5vw;
+  }
+
+  .right-page6 > video,
+  .right-page7 > video,
+  .right-page8 > video {
+    height: 60%;
+    width: 60%;
+  }
+}
+/* Mobile View */
+@media (max-width: 480px) {
+  #nav {
+    width: 95vw;
+    height: 12vh;
+    padding: 0 3vw;
+  }
+
+  .nav-link {
+    font-size: 4vw;
+    padding: 1.5vw 3vw;
+  }
+
+  #page > h1 {
+    font-size: 14vw;
+    top: 20vh;
+  }
+
+  #page > h6 {
+    font-size: 5vw;
+    top: 50vh;
+  }
+
+  #page1 > h1 {
+    font-size: 14vw;
+    top: 40vh;
+  }
+
+  #page1 > h4 {
+    font-size: 6vw;
+    top: 70vh;
+  }
+
+  #page1 > #btn1,
+  #page1 > #btn2 {
+    font-size: 4vw;
+    padding: 3vw 4vw;
+    top: 90vh;
+  }
+
+  .left-page6 > h1,
+  .left-page7 > h1,
+  .left-page8 > h1 {
+    font-size: 5vw;
+  }
+
+  .left-page6 > h4,
+  .left-page7 > h4,
+  .left-page8 > h4 {
+    font-size: 4vw;
+  }
+
+  .right-page6 > video,
+  .right-page7 > video,
+  .right-page8 > video {
+    height: 40%;
+    width: 40%;
+  }
+
+}
