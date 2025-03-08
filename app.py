@@ -17,9 +17,27 @@ model = genai.GenerativeModel('gemini-2.0-pro-exp-02-05')
 # Language mapping
 LANGUAGES = {
     'hindi': 'Hindi',
-    'telugu': 'Telugu', 
-    'bengoli': 'Bengali',
-    'marathi': 'Marathi'
+    'english': 'English',
+    'telugu': 'Telugu',
+    'bengali': 'Bengali',
+    'marathi': 'Marathi',
+    'tamil': 'Tamil',
+    'urdu': 'Urdu',
+    'gujarati': 'Gujarati',
+    'malayalam': 'Malayalam',
+    'kannada': 'Kannada',
+    'odia': 'Odia',
+    'punjabi': 'Punjabi',
+    'assamese': 'Assamese',
+    'maithili': 'Maithili',
+    'santali': 'Santali',
+    'kashmiri': 'Kashmiri',
+    'nepali': 'Nepali',
+    'konkani': 'Konkani',
+    'sindhi': 'Sindhi',
+    'dogri': 'Dogri',
+    'manipuri': 'Manipuri',
+    'bodo': 'Bodo'
 }
 
 def extract_text_from_file(file):
