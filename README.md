@@ -29,7 +29,7 @@ A Flask-based web application for translating text and documents into multiple l
     21. Manipuri
     22. Bodo
   ```
-- Generates a downloadable PDF of the translated text.
+- Generates a downloadable PDF file of the translated text.
 - User-friendly UI with Tailwind CSS styling.
 - Supports file upload and direct text translation.
 - Secure session management.
@@ -43,8 +43,8 @@ A Flask-based web application for translating text and documents into multiple l
 
 1. Clone the repository:
    ```sh
-   git clone https://github.com/yourusername/your-repo.git
-   cd your-repo
+   git clone https://github.com/daemon-001/Document-Translator-Flask-WebAPP.git
+   cd Document-Translator-Flask-WebAPP
    ```
 2. Install dependencies:
    ```sh
@@ -78,5 +78,5 @@ Pull requests are welcome! Feel free to open an issue for suggestions or improve
 This project is licensed under the MIT License.
 
 ---
-Made with ❤️ using Flask and AI.
+Made with ❤️ using Flask and Google AI.
 
