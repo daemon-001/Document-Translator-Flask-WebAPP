@@ -231,6 +231,72 @@ ScrollTrigger.create({
   end: `300% top`,
 });
 
+translationForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  
+  if (!fileInput.files.length && !textInput.value.trim()) {
+      alert('Please either upload a file or enter text to translate.');
+      return;
+  }
+
+  loading.classList.remove('hidden');
+  
+  try {
+      const formData = new FormData(translationForm);
+      
+      const response = await fetch('/translate', {
+          method: 'POST',
+          body: formData
+      });
+      
+      const html = await response.text();
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(html, 'text/html');
+      
+      // Update the translation result
+      const newTranslatedText = doc.getElementById('translatedText');
+      if (newTranslatedText) {
+          translatedText.value = newTranslatedText.getAttribute('data-translation') || newTranslatedText.value;
+          
+          // Show copy button if we have valid translation
+          if (translatedText.value && 
+              translatedText.value !== 'No text provided' && 
+              !translatedText.value.includes('error')) {
+              copyButton.classList.remove('hidden');
+          } else {
+              copyButton.classList.add('hidden');
+          }
+      }
+      
+      // Check for PDF availability from data attribute
+      const isPdfAvailable = doc.querySelector('meta[name="pdf-available"]');
+      if (isPdfAvailable && isPdfAvailable.getAttribute('content') === 'true') {
+          const pdfButton = document.querySelector('a[href="/download-pdf"]');
+          if (pdfButton) {
+              pdfButton.classList.remove('hidden');
+          }
+      } else {
+          const pdfButton = document.querySelector('a[href="/download-pdf"]');
+          if (pdfButton) {
+              pdfButton.classList.add('hidden');
+          }
+      }
+      
+  } catch (error) {
+      console.error('Error:', error);
+      translatedText.value = 'An error occurred during translation.';
+      copyButton.classList.add('hidden');
+      
+      // Hide PDF button on error
+      const pdfButton = document.querySelector('a[href="/download-pdf"]');
+      if (pdfButton) {
+          pdfButton.classList.add('hidden');
+      }
+  } finally {
+      loading.classList.add('hidden');
+  }
+});
+
 
 
  

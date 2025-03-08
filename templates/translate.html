@@ -7,6 +7,11 @@
     <title>Translation Page</title>
     <link rel="stylesheet" href="../static/css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    {% if pdf_available %}
+    <meta name="pdf-available" content="true">
+    {% else %}
+    <meta name="pdf-available" content="false">
+    {% endif %}
 </head>
 <body class="bg-white/90 h-screen">
     <!-- Previous nav section remains the same -->
@@ -85,7 +90,12 @@
                         <div class="space-x-2">
                             {% if pdf_available %}
                             <a href="{{ url_for('download_pdf') }}" 
-                               class="px-4 py-1 bg-green-500 hover:bg-green-700 text-white text-sm font-bold rounded-lg transition-colors duration-200">
+                                class="px-4 py-1 bg-green-500 hover:bg-green-700 text-white text-sm font-bold rounded-lg transition-colors duration-200">
+                                Download PDF
+                            </a>
+                            {% else %}
+                            <a href="{{ url_for('download_pdf') }}" 
+                                class="hidden px-4 py-1 bg-green-500 hover:bg-green-700 text-white text-sm font-bold rounded-lg transition-colors duration-200">
                                 Download PDF
                             </a>
                             {% endif %}
