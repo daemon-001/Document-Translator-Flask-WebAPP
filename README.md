@@ -75,6 +75,7 @@ genai.configure(api_key='your_api_key_here')
 ![Screenshot (78)](https://github.com/user-attachments/assets/fcbb89aa-737c-4995-92d4-8890fb89736e)
 ![Screenshot (83)](https://github.com/user-attachments/assets/4e5cf23d-40f6-47c6-8971-03715469ce08)
 ![Screenshot (84)](https://github.com/user-attachments/assets/b0b1f05f-5738-4340-bd29-d5e5aee6b247)
+Thanks for `Manish` to develop a wonderful frontend.
 
 ## Contributing
 Pull requests are welcome! Feel free to open an issue for suggestions or improvements.
