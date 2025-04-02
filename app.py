@@ -15,9 +15,11 @@ app = Flask(__name__)
 app.secret_key = 'your_secret_key_here'
 logging.basicConfig(level=logging.DEBUG)
 
-# Configure Gemini API
-genai.configure(api_key='your_api_key_here')
-model = genai.GenerativeModel('gemini-2.0-pro-exp-02-05')
+# Add your Google API key here or set it as an environment variable
+api_key = os.getenv('API_KEY')
+
+genai.configure(api_key = api_key)
+model = genai.GenerativeModel('gemini-1.5-flash-8b')
 
 # Language mapping
 LANGUAGES = {
